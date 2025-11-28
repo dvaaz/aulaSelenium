@@ -1,0 +1,15 @@
+package pageObject;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+
+public class BasePO {
+
+	protected WebDriver driver;
+	
+	public BasePO(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this); // inicializa os elementos anotados com as anotações do Selenium
+	}
+}
