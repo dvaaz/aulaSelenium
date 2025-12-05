@@ -8,8 +8,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
-/*
+/**
  * Montagem de Infraestrutura
+ * Inclui o 
  */
 public class BaseTest {
 	protected static WebDriver driver; 

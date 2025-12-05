@@ -18,15 +18,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 public class GoogleFirstTest {
 	private WebDriver driver;
-	private String URL_BASE = "https://www.duckduckgo.com";
-	private String PATH_DRIVE = "src/test/resources/chromedriver1420744459.exe";
+	private String URL_BASE = "https://www.duckduckgo.com"; // Injeção da URL para busca 
+	private String PATH_DRIVE = "src/test/resources/chromedriver.exe"; // Localização do driver na arquitetura do programa
 
 	private void iniciar() {
 		System.setProperty("webdriver.chrome.driver", PATH_DRIVE);
 		driver = new ChromeDriver();
-		driver.manage().window().maximize();
+		driver.manage().window().maximize(); // Gerenciar: janela, maximizar
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // Gerenciar: timeout, 10 segundos
 		
 		driver.get(URL_BASE);		
 	}
@@ -36,14 +36,14 @@ public class GoogleFirstTest {
 		//Montagem do cenário
 		iniciar();
 		
-		WebElement inputPesquisa = driver.findElement(By.name("q"));
-		inputPesquisa.sendKeys("receita de bolo de cenoura" + Keys.ENTER);
+		WebElement inputPesquisa = driver.findElement(By.name("q")); // Variavel que carrega o elmento (obtido por documentação ou inspecão no site)
+		inputPesquisa.sendKeys("\"receita de bolo de cenoura\"" + Keys.ENTER); // Informação enviada
 		
 		String resultado = driver.findElement(By.cssSelector("#react-layout article")).getText();
 		
 		System.out.println("Texto encontrado: " + resultado);
 		
-		assertTrue(resultado.contains("cenoura"));
+		assertTrue(resultado.contains("bolo de cenoura")); // Busca a String "bolo de cenoura"
 		
 		driver.quit();
 		
