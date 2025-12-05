@@ -67,7 +67,7 @@ public class ProdutoTest extends BaseTestProduto{
 		Integer tamanhoLista = produtoPage.verificaLista().size();
 		
 		produtoPage.sair();
-		assertEquals(entrada.get(0), saida.get(0));
+		assertEquals(entrada.get(1), saida.get(1));
 		
 		
 		
